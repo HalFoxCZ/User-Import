@@ -9,7 +9,7 @@ Instructions for usage:
 4. Make sure the file format is valid for .
 5. Open PowerShell as **<u>administrator</u>**
 6. Use cd command to the folder where "**<u>Import-Users.ps1</u>**" is located.
-7. run this command : ``` .\Import-Users.ps1 -FilePath "C:\Path\To\Users.csv"``` 
+7. run this command : ``` .\Import-Users.ps1 -FilePath "C:\Path\To\Users.csv"```  (For JSON just change the end to .json instead of .csv)
 8. Script will tell you if all users were imported. 
 9. If any users are missing or failed to import, check syntax of your CSV or JSON file.
 
