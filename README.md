@@ -5,13 +5,14 @@ Instructions for usage:
 
 1. Download this zip folder from GitHub.
 2. Unzip this folder.
-3. Find path to your csv/json file with users.
-4. Make sure the file format is valid for .
-5. Open PowerShell as **<u>administrator</u>**
-6. Use cd command to the folder where "**<u>Import-Users.ps1</u>**" is located.
-7. run this command : ``` .\Import-Users.ps1 -FilePath "C:\Path\To\Users.csv"```  (For JSON just change the end to .json instead of .csv)
-8. Script will tell you if all users were imported. 
-9. If any users are missing or failed to import, check syntax of your CSV or JSON file.
+3. EDIT 'EDIT DOMAIN' and 'PASSWORD' for actual values
+4. Find path to your csv/json file with users.
+5. Make sure the file format is valid for .
+6. Open PowerShell as **<u>administrator</u>**
+7. Use cd command to the folder where "**<u>Import-Users.ps1</u>**" is located.
+8. run this command : ``` .\Import-Users.ps1 -FilePath "C:\Path\To\Users.csv"```  (For JSON just change the end to .json instead of .csv)
+9.  Script will tell you if all users were imported. 
+10. If any users are missing or failed to import, check syntax of your CSV or JSON file.
 
 ## Format example for CSV:
 <pre>
