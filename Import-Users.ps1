@@ -27,9 +27,16 @@ $users = Import-Csv -Path $FilePath
 foreach ($user in $users) {
     $FullName = "$($user.first_name) $($user.last_name)"
     $SamAccountName = ($user.last_name + $user.first_name.Substring(0,1) + $user.id).ToLower()
+    
+    ### EDIT DOAMIN ###
     $UserPrincipalName = "$SamAccountName@EDIT_DOAMIN.com"
     $OU = "OU=Users,DC=EDIT_DOMAIN,DC=com"
+    ### EDIT DOAMIN ###
+
+    
+    ### PASSWORD ###
     $Password = ConvertTo-SecureString "Abcdef01" -AsPlainText -Force
+    ### PASSWORD ###
 
     # Check if user already exists
     if (Get-ADUser -Filter {SamAccountName -eq $SamAccountName}) {
