@@ -22,7 +22,7 @@ if (-Not (Test-Path $FilePath)) {
 
 # Import CSV
 $users = Import-Csv -Path $FilePath
-
+$allImported = true;
 # Loop through each user
 foreach ($user in $users) {
     $FullName = "$($user.first_name) $($user.last_name)"
@@ -33,7 +33,7 @@ foreach ($user in $users) {
     $OU = "OU=Users,DC=EDIT_DOMAIN,DC=com"
     ### EDIT DOAMIN ###
 
-    
+
     ### PASSWORD ###
     $Password = ConvertTo-SecureString "Abcdef01" -AsPlainText -Force
     ### PASSWORD ###
@@ -57,9 +57,13 @@ foreach ($user in $users) {
 
             Write-Host "User $FullName ($SamAccountName) created successfully." -ForegroundColor Green
         } catch {
+            $allImported = false;
             Write-Host "Failed to create user $FullName ($SamAccountName): $_" -ForegroundColor Red
         }
     }
 }
-
-Write-Host "User import process completed." -ForegroundColor Cyan
+if ($allImported) {
+    Write-Host "All users imported successfully." -ForegroundColor Cyan
+} else {
+    Write-Host "Some users failed to import." -ForegroundColor Red
+}
